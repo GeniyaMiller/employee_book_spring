@@ -39,6 +39,16 @@ Content-Type: application/json
   "department": 3,
   "salary": 1500
 }
+### Создать сотрудника 5
+POST http://localhost:8080/employees
+Content-Type: application/json
+
+{
+  "firstName": "576n",
+  "lastName": "ivan",
+  "department": 1,
+  "salary": 1000
+}
 
 ### Получить всех сотрудников
 GET http://localhost:8080/employees

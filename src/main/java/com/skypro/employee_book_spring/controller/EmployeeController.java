@@ -1,5 +1,6 @@
 package com.skypro.employee_book_spring.controller;
 
+import com.skypro.employee_book_spring.exception.EmployeeDataException;
 import com.skypro.employee_book_spring.model.Employee;
 import com.skypro.employee_book_spring.record.EmployeeRequest;
 import com.skypro.employee_book_spring.service.EmployeeService;
@@ -24,7 +25,7 @@ public class EmployeeController {
         return this.employeeService.getAllEmployees() ;
     }
     @PostMapping("/employees")
-    public Employee createEmployee(@RequestBody EmployeeRequest employeeRequest){
+    public Employee createEmployee(@RequestBody EmployeeRequest employeeRequest) throws EmployeeDataException {
         return this.employeeService.addEmployee(employeeRequest);
     }
     @GetMapping("/employees/salary/sum")
