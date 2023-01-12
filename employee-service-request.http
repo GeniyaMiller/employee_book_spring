@@ -44,7 +44,7 @@ POST http://localhost:8080/employees
 Content-Type: application/json
 
 {
-  "firstName": "576n",
+  "firstName": "ivan",
   "lastName": "ivan",
   "department": 1,
   "salary": 1000
@@ -64,5 +64,23 @@ GET http://localhost:8080/employee/salary/max
 
 ### Получение всех сотрудников, зарплата которых больше средней зарплаты
 GET http://localhost:8080/employee/high-salary
+
+### Получить всех сотрудников по отделу номер 3
+GET http://localhost:8080/department/employees?department=3
+
+### Получить всех сотрудников по отделу номер 2
+GET http://localhost:8080/department/employees?department=2
+
+### Получить всех сотрудников по отделу номер 1
+GET http://localhost:8080/department/employees?department=1
+
+### Получаем зарплату по отделам
+GET http://localhost:8080/department/1/salary/sum
+
+### Получаем максимальную зарплату по отделу
+GET http://localhost:8080/department/1/salary/max
+
+### Получаем минимальную зарплату по отделу
+GET http://localhost:8080/department/3/salary/min
 
 
