@@ -21,27 +21,32 @@ public class EmployeeController {
     }
 
     @GetMapping("/employees")
-    public Collection<Employee> getAllEmployees(){
-        return this.employeeService.getAllEmployees() ;
+    public Collection<Employee> getAllEmployees() {
+        return this.employeeService.getAllEmployees();
     }
+
     @PostMapping("/employees")
     public Employee createEmployee(@RequestBody EmployeeRequest employeeRequest) throws EmployeeDataException {
         return this.employeeService.addEmployee(employeeRequest);
     }
+
     @GetMapping("/employees/salary/sum")
-    public Integer getSalarySum(){
+    public Integer getSalarySum() {
         return this.employeeService.getSalarySum();
     }
+
     @GetMapping("/employee/salary/min")
-    public Employee getMinSalary(){
+    public Employee getMinSalary() {
         return this.employeeService.getEmployeeMinSalary();
     }
+
     @GetMapping("/employee/salary/max")
-    public Employee getMaxSalary(){
+    public Employee getMaxSalary() {
         return this.employeeService.getEmployeeMaxSalary();
     }
+
     @GetMapping("/employee/high-salary")
-    public List<Employee> getHighSalary(){
+    public List<Employee> getHighSalary() {
         return this.employeeService.getEmployeeHighSalary();
     }
 

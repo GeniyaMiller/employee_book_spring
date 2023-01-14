@@ -10,14 +10,12 @@ import java.util.stream.Collectors;
 public class DepartmentService {
     private final EmployeeService employeeService;
 
-
     public DepartmentService(EmployeeService employeeService) {
         this.employeeService = employeeService;
     }
 
-
     public List<Employee> getEmployeesByDepartment(int department) {
-        return this.employeeService.getAllEmployees().stream().filter(employee -> employee.getDepartment()==department).collect(Collectors.toList());
+        return this.employeeService.getAllEmployees().stream().filter(employee -> employee.getDepartment() == department).collect(Collectors.toList());
     }
 
     public int sumSalaryByDepartment(int department) {
@@ -32,12 +30,12 @@ public class DepartmentService {
         return getEmployeesByDepartment(department).stream().mapToInt(Employee::getSalary).min().orElseThrow();
     }
 
-    public Set<Integer> getExistingDepartment(){
-        return this.employeeService.getAllEmployees().stream().mapToInt(Employee::getDepartment).collect(Collectors.toSet());
+    public Set<Integer> getExistingDepartment() {
+        return this.employeeService.getAllEmployees().stream().map(Employee::getDepartment).collect(Collectors.toSet());
     }
 
     public Map<Integer, List<Employee>> getAllEmployeesByDepartments() {
-        return getExistingDepartment().stream().collect(Collectors.toMap(departments->departments, this::getEmployeesByDepartment));
+        return getExistingDepartment().stream().collect(Collectors.toMap(departments -> departments, this::getEmployeesByDepartment));
     }
 
 

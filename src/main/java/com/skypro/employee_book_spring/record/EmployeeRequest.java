@@ -1,10 +1,15 @@
 package com.skypro.employee_book_spring.record;
 
+import com.skypro.employee_book_spring.exception.EmployeeDataException;
+import com.skypro.employee_book_spring.model.Employee;
+import org.apache.commons.lang3.StringUtils;
+
 public class EmployeeRequest {
     private String firstName;
     private String lastName;
     private int department;
     private int salary;
+
 
     public String getFirstName() {
         return firstName;

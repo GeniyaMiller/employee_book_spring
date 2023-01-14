@@ -12,38 +12,38 @@ import java.util.Map;
 @RestController
 @RequestMapping("/department")
 public class DepartmentController {
-  private final DepartmentService departmentService;
+    private final DepartmentService departmentService;
 
-  public DepartmentController(DepartmentService departmentService) {
-    this.departmentService = departmentService;
-  }
+    public DepartmentController(DepartmentService departmentService) {
+        this.departmentService = departmentService;
+    }
 
-  @GetMapping("/employees")
-  public List<Employee> getEmployeesByDepartment (int department){
-    return this.departmentService.getEmployeesByDepartment(department);
-  }
+    @GetMapping("/employees")
+    public List<Employee> getEmployeesByDepartment(int department) {
+        return this.departmentService.getEmployeesByDepartment(department);
+    }
 
+    @GetMapping("/{department}/salary/sum")
+    @ResponseBody
+    public int sumSalaryByDepartment(@PathVariable int department) {
+        return this.departmentService.sumSalaryByDepartment(department);
+    }
 
-  @GetMapping("/{department}/salary/sum")
-  @ResponseBody
-  public int sumSalaryByDepartment(@PathVariable int department){
-     return this.departmentService.sumSalaryByDepartment(department);
-  }
+    @GetMapping("/{department}/salary/max")
+    @ResponseBody
+    public int maxSalaryByDepartment(@PathVariable int department) {
+        return this.departmentService.maxSalaryByDepartment(department);
+    }
 
-  @GetMapping("/{department}/salary/max")
-  @ResponseBody
-  public int maxSalaryByDepartment(@PathVariable int department){
-     return this.departmentService.maxSalaryByDepartment(department);
-  }
+    @GetMapping("/{department}/salary/min")
+    @ResponseBody
+    public int minSalaryByDepartment(@PathVariable int department) {
+        return this.departmentService.minSalaryByDepartment(department);
+    }
 
-  @GetMapping("/{department}/salary/min")
-  @ResponseBody
-  public int minSalaryByDepartment(@PathVariable int department){
-    return this.departmentService.minSalaryByDepartment(department);
-  }
-  @GetMapping("/employees/mapDepartment")
-  public Map<Integer, List<Employee>> getAllEmployeesByDepartments(){
-    return this.departmentService.getAllEmployeesByDepartments();
-  }
+    @GetMapping("/employees/mapDepartment")
+    public Map<Integer, List<Employee>> getAllEmployeesByDepartments() {
+        return this.departmentService.getAllEmployeesByDepartments();
+    }
 
 }
